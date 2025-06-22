@@ -25,7 +25,5 @@ int main()
 			searchContact(&phonebook);
 		else if(command == "EXIT" || command == "")
 			break;
-		else if(command == "DEBUGGER")
-			phonebook.printDebug();
 	}
 }
