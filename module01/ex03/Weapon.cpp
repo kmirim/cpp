@@ -11,3 +11,4 @@ std::string const & Weapon::getType(void) const{
 void Weapon::setType(std::string type){
     this->_type = type;
 }
+
