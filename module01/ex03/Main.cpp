@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
@@ -16,15 +15,15 @@ int main(){
     }
     {
         Weapon club;
-        club = Weapon("Crude spiked club");
+        club = Weapon("crude spiked club");
         
         HumanB jim("Jim");
         jim.setWeapon(club);
         jim.attack();
         
-        club.setType("Some other type of club");
+        club.setType("some other type of club");
         jim.attack();
     }
 
-    return EXIT_SUCCESS;
+    return (0);
 }
