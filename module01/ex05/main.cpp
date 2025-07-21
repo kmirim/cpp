@@ -6,4 +6,5 @@ int main(){
     testclass.complain("INFO");
     testclass.complain("WARNING");
     testclass.complain("ERROR");
+    testclass.complain("UNKNOWN");
 }
