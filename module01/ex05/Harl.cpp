@@ -27,5 +27,11 @@ void Harl::complain(std::string level)
         &Harl::debug, &Harl::info, &Harl::warning, &Harl::error
     };
     for (int i = 0; i < 4; i++)
-        (levels[i] == level) && ((this->*func_ptr[i])(), true);
+    {
+        if (levels[i] == level) {
+            (this->*func_ptr[i])();
+            return;
+        }
+    }
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
