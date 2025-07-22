@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 	@echo "\033[1;32m🚀 $(NAME) compiled successfully!\033[0m"
 
-%.o:%.c
+%.o:%.cpp
 	@echo "\033[1;32m⚙️  Compiling $<...\033[0m"
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 

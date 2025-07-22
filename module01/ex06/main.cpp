@@ -18,7 +18,7 @@ LogLevel getLogLevel(const std::string& level)
     return INVALID_LEVEL;
 }
 
-int main (int count, char **value)
+int main ()
 {
     Harl harl;
     std::string input;
