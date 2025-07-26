@@ -53,3 +53,83 @@ std::ostream &operator<<(std::ostream &out, const Fixed &right) {
     out << right.toFloat();
     return (out);
 };
+
+/**
+ * Operadores de comparacao
+ */
+bool Fixed::operator>(const Fixed &other) const{
+    return this->_fpn > other._fpn;
+}
+
+bool Fixed::operator<(const Fixed &other) const{
+    return this->_fpn < other._fpn;
+}
+
+bool Fixed::operator<=(const Fixed &other) const{
+    return this->_fpn <= other._fpn;
+}
+
+bool Fixed::operator>=(const Fixed &other) const{
+    return this->_fpn >= other._fpn;
+}
+
+bool Fixed::operator!=(const Fixed &other) const{
+    return this->_fpn != other._fpn;
+}
+bool Fixed::operator==(const Fixed &other) const{
+    return this->_fpn == other._fpn;
+}
+
+/*
+** Operadores de aritmetica
+*/
+
+Fixed Fixed::operator+(const Fixed &other) const{
+    Fixed res;
+    res. setRawBits(this->_fpn + other._fpn);
+    return res;
+}
+
+Fixed Fixed::operator-(const Fixed &other) const{
+    Fixed res;
+    res.setRawBits(this->_fpn - other._fpn);
+    return res;
+}
+
+Fixed Fixed::operator*(const Fixed &other) const{
+    Fixed res;
+    res.setRawBits(this->_fpn * other._fpn);
+    return res;
+}
+
+Fixed Fixed::operator/(const Fixed &other) const{
+    Fixed res;
+    res.setRawBits(this->_fpn / other._fpn);
+    return res;
+}
+
+/**
+ * Operador de incremento
+ */
+
+Fixed &Fixed :: operator++(){
+    this-> _fpn += 1;
+    return *this;
+}
+
+Fixed &Fixed :: operator--(){
+    this-> _fpn -= 1;
+    return *this;
+}
+
+Fixed Fixed :: operator++(int){
+    Fixed tmp = *this;
+    ++(*this);
+    return tmp;
+}
+
+Fixed Fixed :: operator--(int){
+    Fixed tmp = *this;
+    --(*this);
+    return tmp;
+}
