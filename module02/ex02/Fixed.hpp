@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 class Fixed{
     private:
         int _fpn;
