@@ -12,8 +12,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &other){
 };
 
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
-{
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other){
     std::cout << "WrongAnimal -> Copy assigment operator called!\n";
     this->type = other.type;
     return *this;
@@ -28,3 +27,5 @@ void WrongAnimal::makeSound() const
 {
     std::cout << "I'm just a WrongAnimal, I can't make proper sounds!" << std::endl;
 }
+
+std::string WrongAnimal::getType() const { return this->type; }
