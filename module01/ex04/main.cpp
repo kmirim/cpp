@@ -23,13 +23,14 @@ std::string customReplace(const std::string &str, const std::string &s1, const s
 
 int main (int count, char **value){
     if(count != 4) 
-        return(std::cout << "numeros de argumento invalido" << std::endl, 1); 
+        return(std::cout << "Usage: " << value[0] << " <filename> <s1> <s2>" << std::endl, 1); 
 
     std::fstream file;
     file.open(value[1], std::ios::in);
     
-    if(file.fail()) 
-        return(std::cout << "deu ruim" << std::endl, 1);    {
+    if(file.fail())
+    {
+        return(std::cout << "deu ruim" << std::endl, 1);    
         std::fstream file_replace;
         std::string file_replace_name = value[1];  
         file_replace_name += ".replace";
