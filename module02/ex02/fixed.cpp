@@ -1,20 +1,16 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(): _fpn(0) {
-	//std::cout << "Default constructor called" << std::endl;
 };
 
 Fixed::~Fixed(){
-	//std::cout << "Destructor called" << std::endl;
 };
 
 Fixed::Fixed(const Fixed &other) {
-	//std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 };
 
 Fixed& Fixed::operator=(const Fixed &other) {
-	//std::cout << "Assignment operator called" << std::endl;
 	if (this != &other) {
         this->_fpn = other.getRawBits();
     }
@@ -22,8 +18,7 @@ Fixed& Fixed::operator=(const Fixed &other) {
 };
 
 int	Fixed::getRawBits(void) const {
-	//std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fpn); //returns the raw value of the fixed-point value
+	return (this->_fpn);
 };
 
 void	Fixed::setRawBits(int const raw) {
@@ -31,12 +26,10 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 Fixed::Fixed(const int n) {
-	//std::cout << "Int constructor called" << std::endl;
 	this->_fpn = n << this->_nfb;
 }
 
 Fixed::Fixed(const float n) {
-	//std::cout << "Float constructor called" << std::endl;
 	this->_fpn = roundf(n * (1 << this->_nfb));
 }
 
@@ -48,7 +41,6 @@ int	Fixed::toInt(void) const {
 	return (this->_fpn >> this->_nfb);
 }
 
-//Essa função me permite utilizar std::cout << fixed;
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
 	out << fixed.toFloat();
 	return (out);
@@ -107,7 +99,7 @@ Fixed Fixed::operator/(const Fixed &other) const {
 
 	if (other._fpn == 0) {
 		std::cout << "error: division by zero in 'Fixed::operator/'" << std::endl;
-		return (result); //retorna o default 0.0f.
+		return (result);
 	}
 
 	temp_result = (((long)this->_fpn << this->_nfb) / (long)other._fpn);
