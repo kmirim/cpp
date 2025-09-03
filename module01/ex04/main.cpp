@@ -31,18 +31,18 @@ int main (int count, char **value){
     if(file.fail())
     {
         return(std::cout << "deu ruim" << std::endl, 1);    
-        std::fstream file_replace;
-        std::string file_replace_name = value[1];  
-        file_replace_name += ".replace";
-        file_replace.open(file_replace_name.c_str(), std::ios::out);  
-        std::string line; 
-        if (file.is_open()) 
-        {
-            while (getline(file, line))
-                file_replace << customReplace(line, value[2], value[3]) << std::endl; 
-        }
-        file_replace.close();
-        file.close();
-
     }
+    std::fstream file_replace;
+    std::string file_replace_name = value[1];  
+    file_replace_name += ".replace";
+    file_replace.open(file_replace_name.c_str(), std::ios::out);  
+    std::string line; 
+    if (file.is_open()) 
+    {
+        while (getline(file, line))
+            file_replace << customReplace(line, value[2], value[3]) << std::endl; 
+    }
+    file_replace.close();
+    file.close();
+
 }
