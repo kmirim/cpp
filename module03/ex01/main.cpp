@@ -1,38 +1,35 @@
-#include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
+#include "Cat.hpp"
+#include <iostream>
 
-int main()
-{
-    const Animal *Animal1 = new Animal();
-    const Animal *Animal2 = Animal1;
-    const Animal *Dog1 = new Dog();
-    const Animal *i = new Cat();
-    std::cout << Dog1->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); // Outputs the cat sound!
-    Dog1->makeSound();
-    Animal1->makeSound();
-    Animal2->makeSound();
+int main() {
+    std::cout << "===== CONSTRUCTION TEST =====" << std::endl;
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    delete Animal1;
-    delete Dog1;
+    std::cout << "\n===== DESTRUCTION TEST =====" << std::endl;
+    delete j;
     delete i;
 
-    std::cout << "==== Wrong classes tests ====\n";
+    std::cout << "\n===== ARRAY OF ANIMALS TEST =====" << std::endl;
+    Animal* animals[4];
+    for (int k = 0; k < 2; ++k) animals[k] = new Dog();
+    for (int k = 2; k < 4; ++k) animals[k] = new Cat();
+    for (int k = 0; k < 4; ++k) delete animals[k];
 
-    // Additional tests with WrongCat
-    const WrongAnimal *metaa = new WrongAnimal();
-    const WrongAnimal *jj = new WrongCat();
-    const WrongAnimal *ii = new WrongCat();
-    std::cout << jj->getType() << " " << std::endl;
-    std::cout << ii->getType() << " " << std::endl;
-    ii->makeSound();
-    jj->makeSound();
-    metaa->makeSound();
+    std::cout << "\n===== DEEP COPY TEST =====" << std::endl;
+    Dog originalDog;
+    originalDog.getBrain()->setIdea(0, "Chase the cat!");
+    Dog copiedDog = originalDog; // Deep copy
 
-    delete metaa;
-    delete jj;
-    delete ii;
+    std::cout << "Original Dog's idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Copied Dog's idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+
+    copiedDog.getBrain()->setIdea(0, "Squirrel?");
+    std::cout << "After modification:" << std::endl;
+    std::cout << "Original Dog's idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Copied Dog's idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+
+    std::cout << "\n===== END OF TESTS =====" << std::endl;
     return 0;
 }

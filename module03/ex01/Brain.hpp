@@ -1,9 +1,9 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
 
-# define IDEAS 100;
-
+# define IDEAS 100
 
 class Brain {
     private: 
@@ -14,7 +14,8 @@ class Brain {
         ~Brain();
         Brain &operator=(const Brain &other);
 
-        const std::string &getIdeas(int index) const;
-}
+        const std::string &getIdea(int index) const;
+        void setIdea(int index, const std::string &idea);
+};
 
 #endif

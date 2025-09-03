@@ -1,36 +1,40 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-Cat::Cat() : Animal(), _brain(new Brain())
+Cat::Cat() : Animal()
 {
-    this->type = "Cat";
+    this->_type = "Cat";
+    this->brain = new Brain();
     std::cout << "[Cat]: Default constructor called. \n" << std::endl;
 };
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
-    this->_brain = new Brain(*other._brain);
+    this->brain = new Brain(*other.brain);
     std::cout << "[Cat]: Copy constructor called. \n" << std::endl;
-    this->type = other.type;
+    this->_type = other._type;
 };
 
 Cat &Cat::operator=(const Cat &other)
 {
     std::cout << "[Cat]: Copy assigment operator called!\n";
-    this->type = other.type;
-    this->_brain = new Brain(*other._brain);
+    if (this != &other) {
+        Animal::operator=(other);
+        delete this->brain;
+        this->brain = new Brain(*other.brain);
+    }
     return *this;
 };
 
 Cat::~Cat(){
-    delete this->_brain;
+    delete this->brain;
     std::cout << "[Cat]: Destructor called!\n" << std::endl;
 }
 
 
 Brain* Cat::getBrain() const
 {
-	return this->_brain;
+	return this->brain;
 }
 
 void Cat::makeSound() const
