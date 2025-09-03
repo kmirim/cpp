@@ -1,38 +1,60 @@
-#include "Cat.hpp"
+#include "Animal.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include <iostream>
 
 int main()
 {
-    const Animal *Animal1 = new Animal();
-    const Animal *Animal2 = Animal1;
-    const Animal *Dog1 = new Dog();
-    const Animal *i = new Cat();
-    std::cout << Dog1->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); // Outputs the cat sound!
-    Dog1->makeSound();
-    Animal1->makeSound();
-    Animal2->makeSound();
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    delete Animal1;
-    delete Dog1;
+    std::cout << "j type: " << j->getType() << std::endl;
+    std::cout << "i type: " << i->getType() << std::endl;
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
+
+    delete meta;
+    delete j;
     delete i;
 
-    std::cout << "==== Wrong classes tests ====\n";
+    std::cout << "\n=== WrongAnimal Polymorphism Test ===" << std::endl;
+    const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
 
-    // Additional tests with WrongCat
-    const WrongAnimal *metaa = new WrongAnimal();
-    const WrongAnimal *jj = new WrongCat();
-    const WrongAnimal *ii = new WrongCat();
-    std::cout << jj->getType() << " " << std::endl;
-    std::cout << ii->getType() << " " << std::endl;
-    ii->makeSound();
-    jj->makeSound();
-    metaa->makeSound();
+    std::cout << "wrongCat type: " << wrongCat->getType() << std::endl;
+    wrongCat->makeSound();
+    wrongMeta->makeSound();
 
-    delete metaa;
-    delete jj;
-    delete ii;
+    delete wrongMeta;
+    delete wrongCat;
+
+    std::cout << "\n=== Direct WrongCat Test ===" << std::endl;
+    WrongCat realWrongCat;
+    realWrongCat.makeSound();
+
+    std::cout << "\n=== Copy and Assignment Test ===" << std::endl;
+    Dog dog1;
+    Dog dog2 = dog1;
+    Dog dog3;
+    dog3 = dog1;
+
+    Cat cat1;
+    Cat cat2 = cat1;
+    Cat cat3;
+    cat3 = cat1;
+
+    WrongCat wrongCat1;
+    WrongCat wrongCat2 = wrongCat1;
+    WrongCat wrongCat3;
+    wrongCat3 = wrongCat1;
+
+    std::cout << "\n=== Slicing Test ===" << std::endl;
+    Animal animalCat = Cat();
+    animalCat.makeSound();
+
     return 0;
 }
