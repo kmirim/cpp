@@ -6,24 +6,14 @@
 class Contact
 {
 	public:
-		Contact(); //construtor
-		~Contact(); //destrutor
-		
-		/* 
-		** Getters:
-		** Atribuicao de valores:
-		*/
+		Contact();
+		~Contact();
 
 		std::string	getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickName() const;
 		std::string getPhoneNumber() const;
 		std::string	getSecret() const;
-		
-		/*
-		** Setters:
-		** Resgate/acesso de valores:
-		*/
 
 		void	setFirstName(std::string);
 		void	setLastName(std::string);

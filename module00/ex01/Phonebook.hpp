@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-# include "contact.hpp"
+# include "Contact.hpp"
 # include <iostream>
 
 class Phonebook
@@ -17,7 +17,7 @@ class Phonebook
 		void	setContact(Contact contact);
 		
 		void printDebug() const 
-		{ // Método temporário para verificação
+		{
         	for (int i = 0; i < _count; i++) 
 			{
 				std::cout << "Contato #" << i << ":\n"
@@ -31,14 +31,6 @@ class Phonebook
 		}
 	
 	private:
-	/*
-	** _index (private) com intuito de: 
-	** Membros interos do funcionamento da classe não devem ser acessíveis.
-	** Só a própria classe deverá gerenciar qual index esta sendo usado.
-	** Ex: Se qualquer parte do código pudesse modificar o _index, poderia corromper a
-	agenda.
-	*/
-
 		int		_count; 
 		Contact	_contacts[8];
 		int		_index;

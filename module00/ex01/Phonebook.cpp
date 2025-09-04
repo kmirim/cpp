@@ -1,11 +1,7 @@
-#include "phonebook.hpp"
-/*
-** Quando vir um ':' em um construtor, o que ocorre é:
-** Lista de inicialização de membros
-*/
+#include "Phonebook.hpp"
 
-Phonebook::Phonebook() //Definição do construtor
-:_index(0), _count(0) //Lista de inicialização -> index inicia com 0.
+Phonebook::Phonebook()
+:_index(0), _count(0)
 {
 	return;	
 }

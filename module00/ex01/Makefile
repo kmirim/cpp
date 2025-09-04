@@ -4,9 +4,9 @@ CXX = c++
 
 CXXFLAGS = -std=c++98 -I.
 
-SRCS = phonebook.cpp contact.cpp main.cpp phonebook_utils.cpp
+SRCS = Phonebook.cpp Contact.cpp main.cpp PhonebookUtils.cpp
 
-HEADERS = phonebook.hpp contact.hpp phonebook_utils.hpp
+HEADERS = Phonebook.hpp Contact.hpp PhonebookUtils.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
