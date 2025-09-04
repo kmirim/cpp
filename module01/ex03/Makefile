@@ -31,10 +31,4 @@ fclean: clean
 
 re:fclean all
 
-valgrind: $(NAME)	
-	valgrind --leak-check=full --show-leaks-kinds=all --track-origins=yes --verbose ./$(NAME)
-
-debug-valgrind:
-	$(MAKE) CXXFLAGS="$(filter-out -fsanitize=address,$(CXXFLAGS)) -g" $(NAME)
-
 .PHONY: all clean fclean re valgrind debug-valgrind

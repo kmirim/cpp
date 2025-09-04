@@ -38,14 +38,4 @@ fclean: clean
 
 re: fclean all
 
-valgrind: $(NAME)
-	@echo "\033[1;35m🔍 Running valgrind analysis...\033[0m"
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./$(NAME)
-
-debug-valgrind:
-	@echo "\033[1;36m🛠️  Building valgrind-compatible version...\033[0m"
-	@$(MAKE) fclean
-	@$(MAKE) CXXFLAGS="$(filter-out -fsanitize=address,$(CXXFLAGS)) -g" $(NAME)
-	@echo "\033[1;32m✅ Valgrind-compatible version ready!\033[0m"
-
 .PHONY: all clean fclean re valgrind debug-valgrind debug
