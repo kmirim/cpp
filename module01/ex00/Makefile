@@ -4,9 +4,9 @@ CXX = c++
 
 CXXFLAGS = -std=c++98 -I.
 
-SRCS = newZombie.cpp randomChump.cpp zombie.cpp zombie.cpp Main.cpp
+SRCS = NewZombie.cpp RandomChump.cpp Zombie.cpp Zombie.cpp main.cpp
 
-HEADERS = zombie.hpp
+HEADERS = Zombie.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

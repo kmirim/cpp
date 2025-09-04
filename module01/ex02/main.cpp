@@ -1,13 +1,6 @@
 #include <string>
 #include <iostream>
 
-/** 
- * Declares a string = HI THIS IS BRAIN
- * Creates a pointer to the String (stringPTR)
- * Creates a reference to the string (stringREF)
- * Shows the memory addresses and values associated with each one
- */
-
 int main() {
     std::string string = "HI THIS IS BRAIN";
     std::string *stringPTR = &string;

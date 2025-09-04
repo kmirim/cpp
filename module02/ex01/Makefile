@@ -1,4 +1,4 @@
-SRC = fixed.cpp main.cpp
+SRC = Fixed.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 CXX = c++ 
 CXXFLAGS = -Wall -Wextra -Werror -g
