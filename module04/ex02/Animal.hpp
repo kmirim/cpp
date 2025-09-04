@@ -8,15 +8,14 @@ class Animal {
         std::string _type;
 
     public:
-        Animal();
-        Animal(const Animal &other); //construtor de copia
+        explicit Animal();
+        Animal(const Animal &other); 
         virtual ~Animal();
 
         Animal &operator=(const Animal &other);
 
         std::string getType() const;
-        virtual void makeSound() const;
-
+        virtual void makeSound() const = 0;
 };
 
 #endif

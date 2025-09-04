@@ -3,20 +3,19 @@
 
 # include <iostream>
 # include <string>
-class Animal {
+class Animal {  
     protected: 
-        std::string type;
+        std::string _type;
 
     public:
         Animal();
-        Animal(const Animal &other); //construtor de copia
+        Animal(const Animal &other); 
         virtual ~Animal();
 
         Animal &operator=(const Animal &other);
 
         std::string getType() const;
         virtual void makeSound() const;
-
 };
 
 #endif
