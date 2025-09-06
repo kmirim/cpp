@@ -6,7 +6,7 @@ Fixed::Fixed(const float num_float)
 }
 
 Fixed::Fixed(const int num_int) 
-    : _fpn(num_int * int(1 << _nfb) + (num_int >= 0 ? 0.5 : -0.5)) 
+    : _fpn(num_int << _nfb) 
 {
     std::cout << "Int constructor called\n" << std::endl;
 }
@@ -25,6 +25,7 @@ Fixed &Fixed::operator=(const Fixed &other)
     std::cout << "Copy assignment operator called" << std::endl;
     if(this == &other)
         return *this;
+    _fpn = other._fpn;
     return *this;
 }
 
