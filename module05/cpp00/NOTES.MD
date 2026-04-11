@@ -29,4 +29,7 @@ lista 00 - simula um escritorio infernal
     - atributos: `int pernas`, `int bracos`, `string cores`, `Tipo tipo` (empresarial, gamer, de mesa de jantar etc)
 
 
+-> ` Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) `: Initialization List (Lista de Inicialização)
+    - Diferente de C, que a atribuição de valor é feito dentro do corpo da função, em cpp o valor **const** deve ser inicializado no momento que nasce.
+    - A Solução: A lista de inicialização (após os :) acontece antes do objeto existir plenamente. É o único lugar onde você consegue definir o valor de um membro constante.
     
